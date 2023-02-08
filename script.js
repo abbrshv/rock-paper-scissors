@@ -40,3 +40,21 @@ function playRound(playerSelection, computerSelection) {
       return true;
   }
 }
+
+function playGame() {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  while (playerScore < 5 && computerScore < 5) {
+    if (playRound(getPlayerChoice(), getComputerChoice())) {
+      playerScore += 1;
+    } else {
+      computerScore += 1;
+    }
+    console.log(`SCORE \nPlayer: ${playerScore}\nComputer: ${computerScore}`);
+  }
+
+  console.log(`You ${playerScore === 5 ? "won" : "lost"} the game!`);
+}
+
+playGame();
