@@ -21,7 +21,7 @@ function playRound(playerSelection, computerSelection) {
 
   switch (result) {
     case 0:
-      console.log("Tie  !");
+      console.log("Tie!");
       return playRound(getPlayerChoice(), getComputerChoice());
     case -1:
     case 2:
