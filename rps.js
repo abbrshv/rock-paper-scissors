@@ -1,4 +1,4 @@
-//ROCK PAPER SCISSORS
+//ROCK PAPER SCISSORS GAME
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 
 function getComputerChoice() {
@@ -27,14 +27,14 @@ function playRound(playerSelection, computerSelection) {
     case 2:
       console.log(
         `You lose! ${
-          computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+          computerSelection.charAt(0) + computerSelection.slice(1).toLowerCase()
         } beats ${playerSelection}.`
       );
       return false;
     default:
       console.log(
         `You win! ${
-          playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+          playerSelection.charAt(0) + playerSelection.slice(1).toLowerCase()
         } beats ${computerSelection}.`
       );
       return true;
