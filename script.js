@@ -1,18 +1,18 @@
-//ROCK PAPER SCISSORS GAME
+const playerScoreDisplay = document.querySelector(".score-player");
+const computerScoreDisplay = document.querySelector(".score-computer");
+const choiceButtons = document.querySelectorAll(".choice-btn");
+
 const choices = ["ROCK", "PAPER", "SCISSORS"];
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getPlayerChoice() {
-  let playerSelection = prompt("Make your selection.").toUpperCase();
-
-  while (!choices.includes(playerSelection)) {
-    playerSelection = prompt("Please select correct value.").toUpperCase();
-  }
-
-  return playerSelection;
+function updateScoreDisplay() {
+  playerScoreDisplay.textContent = `Player: ${playerScore}`;
+  computerScoreDisplay.textContent = `Player: ${computerScore}`;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
   switch (result) {
     case 0:
       console.log("Tie!");
-      return playRound(getPlayerChoice(), getComputerChoice());
+      return;
     case -1:
     case 2:
       console.log(
@@ -30,31 +30,31 @@ function playRound(playerSelection, computerSelection) {
           computerSelection.charAt(0) + computerSelection.slice(1).toLowerCase()
         } beats ${playerSelection}.`
       );
-      return false;
+      computerScore++;
+      break;
     default:
       console.log(
         `You win! ${
           playerSelection.charAt(0) + playerSelection.slice(1).toLowerCase()
         } beats ${computerSelection}.`
       );
-      return true;
+      playerScore++;
+      break;
+  }
+
+  updateScoreDisplay();
+
+  if (playerScore === 5 || computerScore === 5) {
+    choiceButtons.forEach((btn) => (btn.disabled = true));
   }
 }
 
 function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  while (playerScore < 5 && computerScore < 5) {
-    if (playRound(getPlayerChoice(), getComputerChoice())) {
-      playerScore += 1;
-    } else {
-      computerScore += 1;
-    }
-    console.log(`SCORE \nPlayer: ${playerScore}\nComputer: ${computerScore}`);
-  }
-
-  console.log(`You ${playerScore === 5 ? "won" : "lost"} the game!`);
+  choiceButtons.forEach((btn) =>
+    btn.addEventListener("click", () =>
+      playRound(btn.id.toUpperCase(), getComputerChoice())
+    )
+  );
 }
 
 playGame();
