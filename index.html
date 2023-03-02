@@ -14,20 +14,33 @@
     <h1 class="header__title">ROCK PAPER SCISSORS</h1>
 </div>
 <div class="container">
-    <div class="scoreboard">
-        <p>SCORE</p>
-        <p class="score-player"></p>
-        <p class="score-computer"></p>
-    </div>
+    <h2 class="choice-title">Choose your weapon</h2>
     <div class="choices">
-        <button class="btn btn-choice" id="rock" type="button">ROCK</button>
-        <button class="btn btn-choice" id="paper" type="button">PAPER</button>
-        <button class="btn btn-choice" id="scissors" type="button">SCISSORS</button>
+        <button class="btn btn-choice" id="rock" type="button">
+            <img src="img/rock.svg" title="Rock" alt="Rock icon">
+        </button>
+        <button class="btn btn-choice" id="paper" type="button">
+            <img src="img/paper.svg" title="Paper" alt="Paper icon">
+        </button>
+        <button class="btn btn-choice" id="scissors" type="button">
+            <img src="img/scissors.svg" title="Scissors" alt="Scissors icon">
+        </button>
     </div>
+    <div class="scoreboard">
+        <div class="score">
+            <h3>Player</h3>
+            <p class="score-player-num"></p>
+        </div>
+        <div class="score">
+            <h3>Computer</h3>
+            <p class="score-computer-num"></p>
+        </div>
+    </div>
+    <h2 class="round-text"></h2>
     <div class="endgame-modal">
         <div class="endgame-modal__content">
-            <p class="endgame-text"></p>
-            <button class="btn btn-restart" type="button">Play again</button>
+            <h3 class="endgame-text"></h3>
+            <button class="btn btn-restart" type="button">Play again?</button>
         </div>
     </div>
 </div>

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +9,30 @@
 }
 
 :root {
+    background-color: ghostwhite;
+    font-family: 'Noto Serif', cursive;
+    font-size: calc(15px + 0.390625vw);
+}
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-family: 'Gajraj one', cursive;
+    font-size: calc(1rem + 3.25vw);
+}
+
+h2 {
+    margin: 2.5vh 0 1vh;
+    font-size: calc(1rem + 2.25vw);
+}
+
+h3 {
+    margin: 1vh 7.5vw 0;
+    font-size: calc(1rem + 1.5vw);
 }
 
 .header {
@@ -13,16 +40,59 @@
     justify-content: center;
     padding: 30px 0;
     min-width: 320px;
-}
-
-.header__title {
-    font-size: 1.6rem;
+    background-color: darkgrey;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 auto;
     min-width: 320px;
     max-width: 1200px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    border: 0;
+    background-color: transparent;
+}
+
+.btn-choice {
+    margin: 1.5vh 0;
+    width: 17.5vw;
+    height: 17.5vw;
+    font-size: 1.5rem;
+}
+
+.btn:hover {
+    scale: 1.1;
+}
+
+.scoreboard {
+    display: flex;
+    margin-top: 6.5vh;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-player-num, .score-computer-num {
+    font-family: 'Mynerve', cursive;
+    font-size: calc(1rem + 15vw);;
+}
+
+.round-text {
+    margin: 0;
+    font-size: calc(1rem + 1.25vw);
 }
 
 .endgame-modal {
@@ -33,20 +103,76 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .endgame-modal__content {
-    margin: 25% auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 20%;
+    align-items: center;
+    margin: 25vh auto;
+    width: 50%;
 }
 
-@media (min-width: 480px) {
-    .header__title {
-        font-size: 2rem;
+.endgame-text {
+    color: white;
+    font-size: calc(1rem + 2.5vw);
+    margin: 3vw;
+}
+
+.btn-restart {
+    color: white;
+    font-family: inherit;
+    font-size: calc(1rem + 1.75vw)
+}
+
+.btn-restart:hover {
+    color: green;
+}
+
+@media (min-width: 479px) {
+    .choices {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .btn-choice {
+        margin: 1vh 3vw;
+        width: 15vw;
+        height: 15vw;
     }
 }
+
+@media (min-width: 1023px) {
+    .scoreboard {
+        margin-top: 4vw;
+    }
+}
+
+@media (min-width: 1199px) {
+    h1 {
+        font-size: calc(1rem + 3vw);
+    }
+
+    h2 {
+        font-size: calc(1rem + 1.75vw);
+    }
+
+    h3 {
+        font-size: calc(1rem + 1.25vw);
+    }
+
+    .btn-choice {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .score-player-num, .score-computer-num {
+        font-family: 'Mynerve', cursive;
+        font-size: calc(1rem + 10vw);
+    }
+}
+
