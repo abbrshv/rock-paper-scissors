@@ -6,17 +6,30 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Rock Paper Scissors</title>
-    <script src="script.js" type="text/javascript" defer></script>
+    <link href="styles.css" rel="stylesheet">
+    <script defer src="script.js" type="text/javascript"></script>
 </head>
 <body>
-<button class="btn choice-btn" id="rock" type="button">ROCK</button>
-<button class="btn choice-btn" id="paper" type="button">PAPER</button>
-<button class="btn choice-btn" id="scissors" type="button">SCISSORS</button>
-<p class="message"></p>
-<div class="scoreboard">
-    <p>SCORE</p>
-    <p class="score-player"></p>
-    <p class="score-computer"></p>
+<div class="header">
+    <h1 class="header__title">ROCK PAPER SCISSORS</h1>
+</div>
+<div class="container">
+    <div class="scoreboard">
+        <p>SCORE</p>
+        <p class="score-player"></p>
+        <p class="score-computer"></p>
+    </div>
+    <div class="choices">
+        <button class="btn btn-choice" id="rock" type="button">ROCK</button>
+        <button class="btn btn-choice" id="paper" type="button">PAPER</button>
+        <button class="btn btn-choice" id="scissors" type="button">SCISSORS</button>
+    </div>
+    <div class="endgame-modal">
+        <div class="endgame-modal__content">
+            <p class="endgame-text"></p>
+            <button class="btn btn-restart" type="button">Play again</button>
+        </div>
+    </div>
 </div>
 </body>
 </html>

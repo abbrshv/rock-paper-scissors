@@ -1,6 +1,9 @@
 const playerScoreDisplay = document.querySelector(".score-player");
 const computerScoreDisplay = document.querySelector(".score-computer");
-const choiceButtons = document.querySelectorAll(".choice-btn");
+const choiceButtons = document.querySelectorAll(".btn-choice");
+const endgameModal = document.querySelector(".endgame-modal");
+const endgameText = document.querySelector(".endgame-text");
+const restartButton = document.querySelector(".btn-restart");
 
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 let playerScore = 0;
@@ -12,7 +15,14 @@ function getComputerChoice() {
 
 function updateScoreDisplay() {
   playerScoreDisplay.textContent = `Player: ${playerScore}`;
-  computerScoreDisplay.textContent = `Player: ${computerScore}`;
+  computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+}
+
+function restartGame() {
+  endgameModal.style.display = "none";
+  playerScore = 0;
+  computerScore = 0;
+  updateScoreDisplay();
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -45,11 +55,15 @@ function playRound(playerSelection, computerSelection) {
   updateScoreDisplay();
 
   if (playerScore === 5 || computerScore === 5) {
-    choiceButtons.forEach((btn) => (btn.disabled = true));
+    endgameModal.style.display = "block";
+    endgameText.textContent = `You ${playerScore === 5 ? "Win" : "Lose"}!`
+    restartButton.addEventListener('click', restartGame);
   }
 }
 
 function playGame() {
+  restartGame();
+
   choiceButtons.forEach((btn) =>
     btn.addEventListener("click", () =>
       playRound(btn.id.toUpperCase(), getComputerChoice())
